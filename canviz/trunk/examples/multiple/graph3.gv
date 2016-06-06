@@ -1,0 +1,11 @@
+digraph graph3 {
+  label=graph3
+  rankdir=LR
+  splines=ortho
+  nodesep=0.8
+  node [shape=box, style=filled, color="#000000bb", fontcolor=white]
+  edge [color="#00000033", arrowhead=onormal]
+  a->{b c}
+  b->{d e}
+  c->{f g}
+}

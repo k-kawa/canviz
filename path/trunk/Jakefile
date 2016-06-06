@@ -1,0 +1,56 @@
+var browserify = require('browserify');
+var fs = require('fs');
+var uglify = require('uglify-js');
+
+
+desc('builds everything');
+task('default', ['path'], function() {});
+
+desc('builds path');
+task('path', ['build/path.min.js'], function() {});
+
+desc('makes the build directory');
+directory('build');
+
+desc('builds the concatenated path library for development');
+file('build/path.js', [
+  'build',
+  'index.js',
+  'Jakefile',
+  'package.json',
+  'src/Bezier.js',
+  'src/Ellipse.js',
+  'src/objectKeys.js',
+  'src/Path.js',
+  'src/Point.js',
+  'src/Polygon.js',
+  'src/Rect.js',
+], function() {
+  var b = browserify('./index.js');
+  b.bundle({standalone: 'Path'}, function(err, code) {
+    if (err) console.error(err);
+    else fs.writeFileSync('build/path.js', code, 'utf8');
+    complete();
+  });
+}, {async: true});
+
+desc('builds the minified path library for production');
+file('build/path.min.js', ['build/path.js'], function() {
+  var options = {
+    compress: {
+      unsafe: true
+    },
+    output: {
+      ascii_only: true,
+      semicolons: false
+    },
+    warnings: true
+  };
+  var code = uglify.minify('build/path.js', options).code;
+  fs.writeFileSync('build/path.min.js', code, 'utf8');
+});
+
+desc('removes everything that was built');
+task('clean', function() {
+  jake.rmRf('build');
+});

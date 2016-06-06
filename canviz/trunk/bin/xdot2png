@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+var Canviz = require('../src/Canviz.js');
+var fs = require('fs');
+
+var args = process.argv.slice(2);
+
+var inFileName = args.shift();
+if (!inFileName) inFileName = '-';
+
+var outFileName = args.shift();
+if (!outFileName) outFileName = '-';
+
+if (args.length) {
+  process.stderr.write('usage: xdot2png [infile.xdot [outfile.png]]\n');
+  process.exit(1);
+}
+
+var inFile = '-' == inFileName ? process.stdin : fs.createReadStream(inFileName);
+var outFile = '-' == outFileName ? process.stdout : fs.createWriteStream(outFileName);
+
+inFile.setEncoding('utf8');
+var chunks = [];
+inFile.on('data', function (chunk) {
+  chunks.push(chunk);
+});
+inFile.on('end', writeFile);
+inFile.resume();
+
+function writeFile() {
+  var canviz = Canviz();
+  canviz.setTextMode('canvas');
+  canviz.parse(chunks.join(''));
+
+  var stream = canviz.canvas.pngStream();
+  stream.on('data', function (chunk) {
+    outFile.write(chunk);
+  });
+  stream.on('end', function () {});
+}

@@ -1,0 +1,19 @@
+{
+  "name": "path",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "svn",
+    "url": "https://canviz.googlecode.com/svn/path/trunk/"
+  },
+  "bugs": "https://code.google.com/p/canviz/issues/list",
+  "devDependencies": {
+    "browserify": "~2.29.0",
+    "jake": "~0.6.10",
+    "uglify-js": "~2.4.0"
+  },
+  "engines": {
+    "node": ">=0.6.5"
+  }
+}

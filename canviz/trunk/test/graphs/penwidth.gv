@@ -1,0 +1,5 @@
+graph {
+  bold [style=bold]
+  setlinewidth [style="setlinewidth(3)"]
+  penwidth [penwidth=4]
+}

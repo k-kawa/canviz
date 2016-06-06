@@ -1,0 +1,28 @@
+{
+  "name": "canviz",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "svn",
+    "url": "https://canviz.googlecode.com/svn/canviz/trunk/"
+  },
+  "bugs": "https://code.google.com/p/canviz/issues/list",
+  "devDependencies": {
+    "browserify": "~2.29.0",
+    "express": "~3.3.5",
+    "jake": "~0.6.10",
+    "uglify-js": "~2.4.0"
+  },
+  "dependencies": {
+    "escape-html": "~1.0.0",
+    "indexof": "0.0.1",
+    "canvas-browserify": "~1.0.4"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/jake test"
+  },
+  "engines": {
+    "node": ">=0.6.5"
+  }
+}

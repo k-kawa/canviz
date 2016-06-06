@@ -1,0 +1,11 @@
+graph {
+  graph [nodesep=0.1]
+  node [height=0.1, shape=box, width=0.1]
+  <<b>> [label=<<b>&lt;b&gt;</b>>]
+  <<i>> [label=<<i>&lt;i&gt;</i>>]
+  <<sub>> [label=<<sub>&lt;sub&gt;</sub>>]
+  <<sup>> [label=<<sup>&lt;sup&gt;</sup>>]
+  <<u>> [label=<<u>&lt;u&gt;</u>>]
+  <<s>> [label=<<s>&lt;s&gt;</s>>]
+  <<u><s>> [label=<<u><s>&lt;u&gt;&lt;s&gt;</s></u>>]
+}

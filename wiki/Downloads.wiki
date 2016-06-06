@@ -1,0 +1,6 @@
+#summary Canviz downloads
+#labels Deprecated
+
+= Downloads =
+
+Packaged downloads are available from the [http://code.google.com/p/canviz/downloads/list Downloads] tab.

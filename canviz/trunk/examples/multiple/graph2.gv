@@ -1,0 +1,9 @@
+digraph graph2 {
+  label=graph2
+  layout=neato
+  node [shape=circle, peripheries=2]
+  a e
+  node [peripheries=1]
+  a->{b c d e f}
+  e->{g h}
+}
