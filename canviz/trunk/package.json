@@ -12,7 +12,7 @@
     "browserify": "~2.29.0",
     "express": "~3.3.5",
     "jake": "~0.6.10",
-    "uglify-js": "~2.4.0"
+    "uglify-js": "~3.6.9"
   },
   "dependencies": {
     "escape-html": "~1.0.0",
